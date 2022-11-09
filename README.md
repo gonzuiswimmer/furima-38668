@@ -5,6 +5,7 @@
 
 ## users table
 |Column             |Type      |Option                 |
+| ----------------- | -------- | --------------------- |
 |email              |string    |null:false, unique:true|
 |encrypted_password |string    |null:false             |
 |nickname           |string    |null:false             |
@@ -19,6 +20,7 @@
 
 ## items table
 |Column             |Type      |Option                 |
+| ----------------- | -------- | --------------------- |
 |item_name          |string    |null:false             |
 |details            |text      |null:false             |
 |category_id        |integer   |null:false             |
@@ -39,6 +41,7 @@
 
 ## purchased_records table
 |Column      |Type      |Option          |
+| ---------- | -------- | -------------- |
 |user        |references|foreign_key:true|
 |item        |references|foreign_key:true|
 - belongs_to :user
@@ -54,7 +57,7 @@
 |house_number       |string    |null:false                   |
 |building           |string    |                             |
 |phone_number       |string    |null:false                   |
-|purchased_record|references|null:false, foreign_key: true|
+|purchased_record   |references|null:false, foreign_key: true|
 - belongs_to :purchased_record
 - belongs_to :prefecture(extend ActiveHash::Associations::ActiveRecordExtensions)
 
