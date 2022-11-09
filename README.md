@@ -55,7 +55,7 @@
 |house_number       |string    |null:false                   |
 |building           |string    |                             |
 |phone_number       |string    |null:false                   |
-|purchased_record_id|references|null:false, foreign_key: true|
+|purchased_record|references|null:false, foreign_key: true|
 - belongs_to :purchased_record
 - belongs_to :prefecture(extend ActiveHash::Associations::ActiveRecordExtensions)
 
