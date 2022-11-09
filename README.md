@@ -60,7 +60,9 @@
 - belongs_to :prefecture(extend ActiveHash::Associations::ActiveRecordExtensions)
 
 
-## prefectures table(ActiveHash)
+
+<!-- * model creation(ActiveHash) -->
+<!-- ## prefectures table(ActiveHash)
 self.data = [
   {id:1, name: "北海道"},
   {id:2, name: "青森"},
@@ -114,4 +116,4 @@ self.data = [
   .
   .
 ]
-- has_many :items(include ActiveHash::Associations)
+- has_many :items(include ActiveHash::Associations) -->
