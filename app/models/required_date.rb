@@ -1,5 +1,5 @@
 class Required_date < ActiveHash::Base
-  self.data[
+  self.data = [
     {id: 0, name:"---"},
     {id: 1, name:"1~2日で発送"},
     {id: 2, name:"2~3日で発送"},
