@@ -43,6 +43,11 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Category is invalid")
     end
+    it 'condition_idが未選択では保存できない' do
+      @item.condition_id = "0"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Condition is invalid")
+    end
     it 'prefecture_idが未選択では保存できない' do
       @item.prefecture_id = "0"
       @item.valid?
