@@ -3,8 +3,8 @@ class Item < ApplicationRecord
 
   with_options presence: true do 
     validates :image
-    validates :item_name
-    validates :details
+    validates :item_name, length:{minimum:1, maximum: 40}
+    validates :details, length:{minimum:1, maximum: 1000}
     validates :category_id, numericality:{other_than:0, message:"is invalid"}
     validates :prefecture_id, numericality:{other_than:0, message:"is invalid"}
     validates :required_date_id, numericality:{other_than:0, message:"is invalid"}
