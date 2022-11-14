@@ -9,7 +9,7 @@ class Item < ApplicationRecord
     validates :prefecture_id, numericality:{other_than:0, message:"is invalid"}
     validates :required_date_id, numericality:{other_than:0, message:"is invalid"}
     validates :shipping_charge_id, numericality:{other_than:0, message:"is invalid"}
-    validates :price, presence: true, numericality: {greater_than_or_equal_to:300, less_than_or_equal_to:9999999, message:"is invalid(¥300~9,999,999)"}
+    validates :price, presence: true, numericality: {greater_than_or_equal_to:300, less_than_or_equal_to:9999999, only_integer:true, message:"is invalid(¥300~9,999,999)"}
   end
 
   belongs_to :user
