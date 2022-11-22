@@ -1,5 +1,5 @@
 class PurchasedRecord < ApplicationRecord
-  attr_accesor :token
+  attr_accessor :token
 
   belongs_to :user
   belongs_to :item
