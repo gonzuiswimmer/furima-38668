@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    binding.pry
+    set_item
     @purchased_address = PurchasedAddress.new(order_params)
     if @purchased_address.valid?
       pay_item
