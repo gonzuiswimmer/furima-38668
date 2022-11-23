@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :purchased_record do
-    
-    association :user, :item
+    token {"tok_abcdefghijk00000000000000000"}
+
+    association :user
+    association :item
   end
 end
