@@ -7,8 +7,5 @@ FactoryBot.define do
     house_number {"1-2-304"}
     building {"テストマンション"}
     phone_number {Faker::Number.leading_zero_number(digits: 10)}
-    
-    association :user
-    association :item
   end
 end

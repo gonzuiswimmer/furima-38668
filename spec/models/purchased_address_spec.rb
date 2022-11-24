@@ -50,8 +50,18 @@ RSpec.describe PurchasedAddress, type: :model do
       @purchased_address.valid?
       expect(@purchased_address.errors.full_messages).to include("Phone number can't be blank")
     end
-    it '電話番号は10桁以上11桁以内の半角数値のみ購入できる' do
-      @purchased_address.phone_number = "090-1234-5678"
+    it '電話番号が9桁以下では購入できない' do
+      @purchased_address.phone_number = "090123"
+      @purchased_address.valid?
+      expect(@purchased_address.errors.full_messages).to include("Phone number is invalid. Input only number")
+    end
+    it '電話番号が12桁以上では登録できない' do
+      @purchased_address.phone_number = "090123456789"
+      @purchased_address.valid?
+      expect(@purchased_address.errors.full_messages).to include("Phone number is invalid. Input only number")
+    end
+    it '電話番号に半角数字以外が含まれている場合、登録できない' do
+      @purchased_address.phone_number = "０９０-1234-567"
       @purchased_address.valid?
       expect(@purchased_address.errors.full_messages).to include("Phone number is invalid. Input only number")
     end
@@ -59,6 +69,16 @@ RSpec.describe PurchasedAddress, type: :model do
       @purchased_address.token = ""
       @purchased_address.valid?
       expect(@purchased_address.errors.full_messages).to include("Token can't be blank")
+    end
+    it 'user_idが空では購入できない' do
+      @purchased_address.user_id = nil
+      @purchased_address.valid?
+      expect(@purchased_address.errors.full_messages).to include("User can't be blank")
+    end
+    it 'item_idが空では購入できない' do
+      @purchased_address.item_id = nil
+      @purchased_address.valid?
+      expect(@purchased_address.errors.full_messages).to include("Item can't be blank")
     end
   end
 end
